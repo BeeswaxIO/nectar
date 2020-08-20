@@ -7,14 +7,14 @@ The raw material for your honey.
 
     # nectar
     http_archive(
-        name = "ext-nectar-lib",
+        name = "com_beeswax_nectar",
         strip_prefix = "nectar-master",
         url = "https://github.com/BeeswaxIO/nectar/archive/master.zip",
     )
 
     native.bind(
         name = "nectar-lib",
-        actual = "@ext-nectar-lib//:nectar-lib",
+        actual = "@com_beeswax_nectar//:nectar-lib",
     )
 
 ### In your `cc_library` or `cc_bin` rule in BUILD
