@@ -1,5 +1,5 @@
 # nectar
-The raw material for your honey.
+The raw material for your sweet, sweet honey.
 
 ## To add to your Bazel project
 
