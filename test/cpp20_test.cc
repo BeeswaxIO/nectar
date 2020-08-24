@@ -1,8 +1,9 @@
 // Test for C++20 placeholders.
+#include "nectar/cpp20.h"
 #include <memory>
 #include <unordered_map>
+
 #include "gtest/gtest.h"
-#include "nectar/cpp20.h"
 
 namespace {
 
@@ -10,7 +11,7 @@ class Cpp20Test : public ::testing::Test {
  public:
 };
 
-using namespace beeswax::nectar; //NOLINT
+using namespace beeswax::nectar;  // NOLINT
 
 TEST_F(Cpp20Test, Starts) {
   EXPECT_TRUE(starts_with("abc", "abc"));

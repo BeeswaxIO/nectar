@@ -11,3 +11,15 @@ cc_library(
     hdrs = ["cstring_view.h"],
     visibility = ["//visibility:public"],
 )
+
+cc_library(
+    name = "scoper",
+    hdrs = ["scoper.h"],
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "collections",
+    hdrs = ["collections.h"],
+    visibility = ["//visibility:public"],
+)

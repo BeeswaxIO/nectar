@@ -1,9 +1,9 @@
 // Test for cstring_view.
+#include "nectar/cstring_view.h"
 #include <list>
 #include <memory>
 #include <set>
 #include <unordered_map>
-#include "nectar/cstring_view.h"
 
 #include "gtest/gtest.h"
 

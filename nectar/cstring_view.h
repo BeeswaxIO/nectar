@@ -115,4 +115,4 @@ inline constexpr basic_cstring_view<char32_t> operator"" _sz(
   return basic_cstring_view<char32_t>{str, len};
 }
 
-}  // namespace beeswax::nectar 
+}  // namespace beeswax::nectar

@@ -1,0 +1,18 @@
+BasedOnStyle: Google
+BinPackArguments: false
+BinPackParameters: false
+DerivePointerAlignment: false
+# This matches the google style guide params from clang-format but
+# puts our code last, as the style guide says.
+IncludeCategories:
+  - Regex: '^<ext/.*\\.h>'
+    Priority: 2
+  - Regex: '^<.*\\.h>'
+    Priority: 1
+  - Regex: '^<.*'
+    Priority: 2
+  # This is the added line.
+  - Regex: 'beeswax.*'
+    Priority: 4
+  - Regex: '.*'
+    Priority: 3
