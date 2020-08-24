@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# Ignore bazel
+bazel-nectar
+bazel-bin
+bazel-out
+bazel-genfiles
+bazel-testlogs
+tmp/
+
