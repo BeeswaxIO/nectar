@@ -13,4 +13,4 @@
 //     namespace nectar = beeswax::nectar;
 //
 // Also recommended:
-//     using nectar::operator"" _sz;
+//     using beeswax::operator"" _sz;

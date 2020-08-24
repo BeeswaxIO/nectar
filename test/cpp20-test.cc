@@ -59,8 +59,8 @@ TEST_F(Cpp20Test, Ends) {
 TEST_F(Cpp20Test, VectorEraseIf) {
   std::vector<std::string> v = {"abc", "defgh", "ijk", "lmno", "pqrstuv"};
   EXPECT_EQ(v.size(), 5U);
-  // EXPECT_EQ(erase_if(v, [](auto& e) { return e.size() < 4; }), 2);
-  // EXPECT_EQ(v.size(), 3);
+  EXPECT_EQ(erase_if(v, [](auto& e) { return e.size() < 4; }), 2);
+  EXPECT_EQ(v.size(), 3);
 }
 
 }  // namespace

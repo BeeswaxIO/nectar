@@ -5,3 +5,9 @@ cc_library(
     hdrs = ["cpp20.h"],
     visibility = ["//visibility:public"],
 )
+
+cc_library(
+    name = "cstring_view",
+    hdrs = ["cstring_view.h"],
+    visibility = ["//visibility:public"],
+)
