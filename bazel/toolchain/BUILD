@@ -11,12 +11,12 @@ filegroup(
 cc_toolchain_suite(
     name = "cpp",
     toolchains = {
-        "k8": ":cc-compiler-clang7",
+        "k8": ":cc-compiler-clang13",
     },
 )
 
 cc_toolchain(
-    name = "cc-compiler-clang7",
+    name = "cc-compiler-clang13",
     all_files = ":empty",
     compiler_files = ":empty",
     dwp_files = ":empty",
@@ -24,12 +24,12 @@ cc_toolchain(
     objcopy_files = ":empty",
     strip_files = ":empty",
     supports_param_files = 1,
-    toolchain_config = ":clang7_toolchain",
-    toolchain_identifier = "clang7_toolchain",
+    toolchain_config = ":clang13_toolchain",
+    toolchain_identifier = "clang13_toolchain",
 )
 
 cc_toolchain_config(
-    name = "clang7_toolchain",
-    compiler = "clang7",
+    name = "clang13_toolchain",
+    compiler = "clang13",
     cpu = "k8",
 )

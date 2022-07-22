@@ -11,8 +11,8 @@ load(
 load("@bazel_tools//tools/build_defs/cc:action_names.bzl", "ACTION_NAMES")
 
 def _impl(ctx):
-    if (ctx.attr.cpu == "k8" and ctx.attr.compiler == "clang7"):
-        toolchain_identifier = "clang7_toolchain"
+    if (ctx.attr.cpu == "k8" and ctx.attr.compiler == "clang13"):
+        toolchain_identifier = "clang13_toolchain"
     else:
         fail("Unreachable")
 
@@ -24,8 +24,8 @@ def _impl(ctx):
 
     target_libc = "local"
 
-    if (ctx.attr.cpu == "k8" and ctx.attr.compiler == "clang7"):
-        compiler = "clang7"
+    if (ctx.attr.cpu == "k8" and ctx.attr.compiler == "clang13"):
+        compiler = "clang13"
     else:
         fail("Unreachable")
 
@@ -137,7 +137,7 @@ def _impl(ctx):
         ],
     )
 
-    if (ctx.attr.cpu == "k8" and ctx.attr.compiler == "clang7"):
+    if (ctx.attr.cpu == "k8" and ctx.attr.compiler == "clang13"):
         unfiltered_compile_flags_feature = feature(
             name = "unfiltered_compile_flags",
             enabled = True,
@@ -172,7 +172,7 @@ def _impl(ctx):
     else:
         unfiltered_compile_flags_feature = None
 
-    if (ctx.attr.cpu == "k8" and ctx.attr.compiler == "clang7"):
+    if (ctx.attr.cpu == "k8" and ctx.attr.compiler == "clang13"):
         default_link_flags_feature = feature(
             name = "default_link_flags",
             enabled = True,
@@ -263,7 +263,7 @@ def _impl(ctx):
         ],
     )
 
-    if (ctx.attr.cpu == "k8" and ctx.attr.compiler == "clang7"):
+    if (ctx.attr.cpu == "k8" and ctx.attr.compiler == "clang13"):
         default_compile_flags_feature = feature(
             name = "default_compile_flags",
             enabled = True,
@@ -402,9 +402,9 @@ def _impl(ctx):
         unfiltered_compile_flags_feature,
     ]
 
-    if (ctx.attr.cpu == "k8" and ctx.attr.compiler == "clang7"):
+    if (ctx.attr.cpu == "k8" and ctx.attr.compiler == "clang13"):
         cxx_builtin_include_directories = [
-            "/usr/lib/llvm-7/lib/clang/7.1.0/include",
+            "/usr/lib/llvm-13/lib/clang/13.0.1/include",
             "/usr/local/include",
             "/usr/include",
         ]
@@ -415,7 +415,7 @@ def _impl(ctx):
 
     make_variables = []
 
-    if (ctx.attr.cpu == "k8" and ctx.attr.compiler == "clang7"):
+    if (ctx.attr.cpu == "k8" and ctx.attr.compiler == "clang13"):
         tool_paths = [
             tool_path(name = "ld", path = "/usr/bin/ld"),
             tool_path(name = "cpp", path = "/usr/bin/cpp"),
@@ -425,7 +425,7 @@ def _impl(ctx):
             tool_path(name = "objcopy", path = "/usr/bin/objcopy"),
             tool_path(name = "objdump", path = "/usr/bin/objdump"),
             tool_path(name = "strip", path = "/usr/bin/strip"),
-            tool_path(name = "gcc", path = "/usr/bin/clang-7"),
+            tool_path(name = "gcc", path = "/usr/bin/clang-13"),
             tool_path(name = "ar", path = "/usr/bin/ar"),
         ]
     else:
@@ -462,7 +462,7 @@ cc_toolchain_config = rule(
     implementation = _impl,
     attrs = {
         "cpu": attr.string(mandatory = True, values = ["k8"]),
-        "compiler": attr.string(mandatory = True, values = ["clang7"]),
+        "compiler": attr.string(mandatory = True, values = ["clang13"]),
     },
     provides = [CcToolchainConfigInfo],
     executable = True,
