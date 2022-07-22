@@ -116,3 +116,11 @@ inline constexpr basic_cstring_view<char32_t> operator"" _sz(
 }
 
 }  // namespace beeswax::nectar
+
+// Provide a specialization of std::hash for cstring_view.
+template <>
+struct std::hash<beeswax::nectar::cstring_view> {
+  size_t operator()(const beeswax::nectar::cstring_view& of) const noexcept {
+    return std::hash<std::string_view>()(of);
+  }
+};

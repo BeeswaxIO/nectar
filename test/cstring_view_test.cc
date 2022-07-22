@@ -1,9 +1,12 @@
 // Test for cstring_view.
 #include "nectar/cstring_view.h"
+
 #include <list>
 #include <memory>
 #include <set>
+#include <stdexcept>
 #include <unordered_map>
+#include <unordered_set>
 
 #include "gtest/gtest.h"
 
@@ -89,6 +92,23 @@ TEST(CstringviewTest, Inherited) {
   EXPECT_EQ(sz.compare("abc"), 0);
   EXPECT_EQ(sz.find('f'), std::string_view::npos);
   std::set<cstring_view> all{"abc"_sz, "def"_sz};
+}
+
+TEST(CstringviewTest, Hashable) {
+  // std::hash is specialized for cstring_view.
+  using beeswax::nectar::cstring_view;
+  {
+    std::unordered_map<cstring_view, int> vals = {{"a", 1}, {"b", 2}};
+    EXPECT_EQ(vals["a"], 1);
+    EXPECT_EQ(vals["b"], 2);
+    EXPECT_THROW(vals.at("c"), std::out_of_range);
+  }
+  {
+    std::unordered_set<cstring_view> vals = {"a", "b"};
+    EXPECT_EQ(*vals.find("a"), cstring_view("a"));
+    EXPECT_EQ(*vals.find("b"), cstring_view("b"));
+    EXPECT_EQ(vals.find("c"), vals.end());
+  }
 }
 
 }  // namespace
