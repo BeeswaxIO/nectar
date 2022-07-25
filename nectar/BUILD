@@ -23,3 +23,15 @@ cc_library(
     hdrs = ["collections.h"],
     visibility = ["//visibility:public"],
 )
+
+cc_library(
+    name = "common",
+    hdrs = ["common.h"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "collections",
+        "cpp20",
+        "cstring_view",
+        "scoper",
+    ],
+)
