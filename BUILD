@@ -1,7 +1,5 @@
 cc_library(
     name="nectar-lib",
-    hdrs = glob([
-        "nectar/*.h",
-    ]),
+    deps=["//nectar:common"],
     visibility = ["//visibility:public"],    
 )
