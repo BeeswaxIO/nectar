@@ -95,22 +95,22 @@ using wcstring_view = basic_cstring_view<wchar_t>;
 using u16cstring_view = basic_cstring_view<char16_t>;
 using u32cstring_view = basic_cstring_view<char32_t>;
 
-inline constexpr basic_cstring_view<char> operator"" _sz(const char* str,
+inline constexpr basic_cstring_view<char> operator""_sz(const char* str,
                                                          size_t len) noexcept {
   return basic_cstring_view<char>{str, len};
 }
 
-inline constexpr basic_cstring_view<wchar_t> operator"" _sz(
+inline constexpr basic_cstring_view<wchar_t> operator""_sz(
     const wchar_t* str, size_t len) noexcept {
   return basic_cstring_view<wchar_t>{str, len};
 }
 
-inline constexpr basic_cstring_view<char16_t> operator"" _sz(
+inline constexpr basic_cstring_view<char16_t> operator""_sz(
     const char16_t* str, size_t len) noexcept {
   return basic_cstring_view<char16_t>{str, len};
 }
 
-inline constexpr basic_cstring_view<char32_t> operator"" _sz(
+inline constexpr basic_cstring_view<char32_t> operator""_sz(
     const char32_t* str, size_t len) noexcept {
   return basic_cstring_view<char32_t>{str, len};
 }
